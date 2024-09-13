@@ -1,22 +1,7 @@
-export type Task = {
-  title: string;
-  description: string;
-  targetDate: string;
-  type?: string;
-  priority?: string;
-  subTasks?: Task[];
-};
+import { ToDoListRepository } from "./ToDoListRepository";
+import { Task, UpdateTask } from "./types";
 
-export type UpdateTask = {
-  title?: string;
-  description?: string;
-  targetDate?: string;
-  type?: string;
-  priority?: string;
-  subTasks?: Task[];
-};
-
-export class ToDoList {
+export class ToDoListMemory implements ToDoListRepository {
   private tasks: Task[] = [];
 
   add(task: Task) {
