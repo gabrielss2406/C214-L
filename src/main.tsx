@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+import { LocalStorageAdapter } from "./LocalStorageAdapter.ts";
 
-createRoot(document.getElementById('root')!).render(
+const localStorageAdapter = new LocalStorageAdapter();
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <App toDoListRepository={localStorageAdapter} />
+  </StrictMode>
+);
